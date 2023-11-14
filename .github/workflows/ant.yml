@@ -1,0 +1,39 @@
+# This workflow will build a Java project with Ant
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-ant
+
+name: Javacard Build
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: 'true'
+    - name: Set up JDK 8
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+    - name: Build with Ant
+      run: ant
+    - name: Generate Checksums (Echo to log)
+      run: find ./build/ -type f -exec sha256sum {} \;
+    - name: Generate Checksums (For Artifacts)
+      run: find ./build/ -type f -exec sha256sum {} \; > ./build/sha256sums.txt
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.3
+      with:
+        name: Seedkeeper-Applets
+        path: ./build/
+
+
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<project name="Satochip-DIY" default="build" basedir=".">
+    <description>Builds, tests, and runs the project .</description>
+
+	<!--
+    You could add descriptions of overridable targets here, or just link to online help...
+    -->
+	<get src="https://github.com/martinpaljak/ant-javacard/releases/latest/download/ant-javacard.jar" dest="./lib/" skipexisting="true"/>
+
+	<taskdef name="javacard" classname="pro.javacard.ant.JavaCard" classpath="lib/ant-javacard.jar"/>
+
+	<target name="build">
+
+		<!--
+		<javacard>
+		  <cap jckit="C:\Dev\java_card_kit-2_2_2\java_card_kit-2_2_2" aid="5361746F43686970" version="0.1" output="SatoChip-2.2.2.cap" sources="src\org\satochip\applet">
+			<applet class="org.satochip.applet.CardEdge" aid="5361746F4368697000"/>
+		  </cap>
+		</javacard>
+		-->
+
+		<!--
+		<javacard>
+		  <cap jckit="C:\Dev\jc303_kit" aid="5361746F43686970" version="0.1" output="SatoChip-3.0.3.cap" sources="src\org\satochip\applet">
+			<applet class="org.satochip.applet.CardEdge" aid="5361746F4368697000"/>
+		  </cap>
+		</javacard>
+		-->
+		<mkdir dir="build"/>
+
+		<!-- Build for Javacard 3.0.4 (J3H145, etc)-->
+		<javacard>
+		  <cap jckit=".\sdks\jc304_kit" aid="5361746F43686970" version="0.1" output="build/SatoChip-3.0.4.cap" sources="src\org\satochip\applet">
+			<applet class="org.satochip.applet.CardEdge" aid="5361746F4368697000"/>
+		  </cap>
+		</javacard>
+
+		<!-- Build for Javacard 3.0.5 (J3R180, THD-89, etc)-->
+		<javacard>
+		  <cap jckit=".\sdks\jc305u4_kit" aid="5361746F43686970" version="0.1" output="build/SatoChip-3.0.5.cap" sources="src\org\satochip\applet">
+			<applet class="org.satochip.applet.CardEdge" aid="5361746F4368697000"/>
+		  </cap>
+		</javacard>
+		
+		
+	</target>
+	
+</project>

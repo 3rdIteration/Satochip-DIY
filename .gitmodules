@@ -1,0 +1,12 @@
+[submodule "applets/satochip"]
+	path = applets/satochip
+	url = https://github.com/Toporin/SatochipApplet
+[submodule "applets/satodime"]
+	path = applets/satodime
+	url = https://github.com/Toporin/Satodime-Applet
+[submodule "applets/seedkeeper"]
+	path = applets/seedkeeper
+	url = https://github.com/Toporin/Seedkeeper-Applet
+[submodule "sdks"]
+	path = sdks
+	url = https://github.com/martinpaljak/oracle_javacard_sdks
