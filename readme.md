@@ -63,9 +63,9 @@ _For unofficial builds (eg: THD-89 devices) you will need to either build the ap
 #### Easy Method - Downloading from Github Actions
 This repository automatically builds the official and THD-89 builds using Github Actions.
 
-If you have a Github account and are logged in, you can view and download the build artifacts (Compiled applets, ready to flash) by clicking the button below, selecting the most recent run and scrolling down to the `Artifacts` and downloading a zip file contining all of the compiled applets.
+If you have a Github account and are logged in, you can view and download the build artifacts (Compiled applets, ready to flash) by clicking the "Build Satochip DIY Applets" button below, selecting the most recent run and scrolling down to the `Artifacts` and downloading a zip file contining all of the compiled applets.
 
-[![Javacard Build](https://github.com/3rdIteration/Satochip-DIY/actions/workflows/ant.yml/badge.svg)](https://github.com/3rdIteration/Satochip-DIY/actions/workflows/ant.yml)
+[![Build Satochip DIY Applets](https://github.com/3rdIteration/Satochip-DIY/actions/workflows/ant.yml/badge.svg)](https://github.com/3rdIteration/Satochip-DIY/actions/workflows/ant.yml)
 
 On this screen, you can also click on the `Build` job button to view a log of the build process and verify that the SHA256 sums of the applets match those that you downloaded.
 
