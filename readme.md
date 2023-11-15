@@ -20,7 +20,7 @@ The following cards are readily available and tested and confirmed to work.
   * J3R180 (Recommended Card) [Buy from Satochip](https://satochip.io/product/card-for-diy-project/)
 * NXP JCOP3 P60 Based Javacards
   * J3H145
-* THD-89 Based Javacards
+* THD-89 Based Javacards (These currently don't work reliably with the official builds, but this repository also includes some versions tweaked to support them)
   * CodeWav NFC Sticker Tag Micro Edition
   * THETAKey T101 
   * THETAKey T104 (CodeWav-2 NFC Card)
@@ -40,6 +40,8 @@ The list of tested cards above isn't exhaustive and generally speaking a Javacar
 You can find a database of various Javacards and their supported functions here: https://www.fi.muni.cz/~xsvenda/jcalgtest/table.html
 
 **If you attempt to flash the applets to an unsupported card, you will likely get an error after the CAP file has been loaded.**
+
+    Error: INSTALL [for install and make selectable] failed: 0x6444
 
 ### Where to Buy
 
@@ -69,7 +71,7 @@ If you have a Github account and are logged in, you can view and download the bu
 
 On this screen, you can also click on the `Build` job button to view a log of the build process and verify that the SHA256 sums of the applets match those that you downloaded.
 
-### Harder Method - Building on your own PC
+### Harder, but Better Method - Building on your own PC
 
 #### Cloning this Github Repository
 This repository includes resources from other Github repositories, so it is nessesary to use Git to download it recursively.
@@ -126,11 +128,13 @@ This repository includes a release of [GlobalPlatformPro](https://github.com/mar
 
 **On Windows**
 
-    gp.exe --install FILENAME.cap
+    gp.exe --install ./build/FILENAME.cap
 
 **On Other Operating Systems**
 
-    java -jar gp.jar --install FILENAME.cap
+    java -jar gp.jar --install ./build/FILENAME.cap
+
+Applets can be uninstalled in the same way using the `--uninstall` command.
 
 ## Locking Javacards (Optional)
 While it is not possible download applets (And wallet data) from an unlocked card, leaving the card unlocked makes it very easy for someone to discover what applets are installed on the card, delete these applets and potentially install other applets of their own. (Including those which could exploit yet-to-be-discovered weaknesses in the Javacard OS or Applet segregation protections) Locking cards is easy and is a good idea...
@@ -147,7 +151,7 @@ For example, to lock the cards with the key `010B0371D78377B801F2D62AFC671D95`
 
 **On Other Operating Systems**
 
-    java --lock 010B0371D78377B801F2D62AFC671D95
+    java -jar gp.jar --lock 010B0371D78377B801F2D62AFC671D95
 
 After this command has been run, further operations will require that the key is specified with the `--key` argument
 
@@ -155,10 +159,10 @@ For example installing an applet on a card locked with the key `010B0371D78377B8
 
 **On Windows**
 
-    gp.exe --key 010B0371D78377B801F2D62AFC671D95 --install FILENAME.cap
+    gp.exe --key 010B0371D78377B801F2D62AFC671D95 --install ./build/FILENAME.cap
 
 **On Other Operating Systems**
 
-    java -jar gp.jar --key 010B0371D78377B801F2D62AFC671D95 --install FILENAME.cap
+    java -jar gp.jar --key 010B0371D78377B801F2D62AFC671D95 --install ./build/FILENAME.cap
 
 ## Simulator

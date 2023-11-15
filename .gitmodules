@@ -10,3 +10,15 @@
 [submodule "sdks"]
 	path = sdks
 	url = https://github.com/martinpaljak/oracle_javacard_sdks
+[submodule "applets/satochip-thd89"]
+	path = applets/satochip-thd89
+	url = https://github.com/3rdIteration/SatochipApplet
+	branch = THD-89
+[submodule "applets/seedkeeper-thd89"]
+	path = applets/seedkeeper-thd89
+	url = https://github.com/3rdIteration/Seedkeeper-Applet
+	branch = THD-89
+[submodule "applets/satodime-thd89"]
+	path = applets/satodime-thd89
+	url = https://github.com/3rdIteration/Satodime-Applet
+	branch = THD-89
