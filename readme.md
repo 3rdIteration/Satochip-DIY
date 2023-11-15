@@ -71,10 +71,10 @@ If you want to build the CAP files on your own system, keep on reading...
 This repository includes a release of [GlobalPlatformPro](https://github.com/martinpaljak/GlobalPlatformPro) which can be used to flash the applets. 
 
 On Windows
-  gp.exe --install FILENAME.cap
+    gp.exe --install FILENAME.cap
 
 On Other Operating Systems
-  java -jar gp.jar --install FILENAME.cap
+    java -jar gp.jar --install FILENAME.cap
 
 ### Locking Javacards (Optional)
 While it is not possible download applets (And wallet data) from an unlocked card, leaving the card unlocked makes it very easy for someone to discover what applets are installed on the card, delete these applets and potentially install other applets of their own. (Including those which could exploit yet-to-be-discovered weaknesses in the Javacard OS or Applet segregation protections) Locking cards is easy and is a good idea...
@@ -86,20 +86,24 @@ To lock the cards, you simply run the `--lock` command with a 32 character hexid
 For example, to lock the cards with the key `010B0371D78377B801F2D62AFC671D95`
 
 On Windows
-  gp --lock 010B0371D78377B801F2D62AFC671D95
+
+    gp --lock 010B0371D78377B801F2D62AFC671D95
 
 On Other Operating Systems
-  java --lock 010B0371D78377B801F2D62AFC671D95
+
+    java --lock 010B0371D78377B801F2D62AFC671D95
 
 After this command has been run, further operations will require that the key is specified with the `--key` argument
 
 For example installing an applet on a card locked with the key `010B0371D78377B801F2D62AFC671D95` would be:
 
 On Windows
-  gp.exe --key 010B0371D78377B801F2D62AFC671D95 --install FILENAME.cap
+
+    gp.exe --key 010B0371D78377B801F2D62AFC671D95 --install FILENAME.cap
 
 On Other Operating Systems
-  java -jar gp.jar --key 010B0371D78377B801F2D62AFC671D95 --install FILENAME.cap
+
+    java -jar gp.jar --key 010B0371D78377B801F2D62AFC671D95 --install FILENAME.cap
 
 
 ### Build Environment
