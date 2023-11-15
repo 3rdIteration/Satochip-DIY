@@ -15,11 +15,12 @@ Fortunatly, Java Card devices provide a platform that lends itself to Open Sourc
 #### Tested and Working
 The following cards are readily available and tested and confirmed to work.
 
-* NXP JCOP4 P71
+* NXP JCOP4 P71 Based Javacards
+  * J3R110
   * J3R180 (Recommended Card) [Buy from Satochip](https://satochip.io/product/card-for-diy-project/)
-* NXP JCOP3 P60
+* NXP JCOP3 P60 Based Javacards
   * J3H145
-* THD-89 Based Java Smartcards
+* THD-89 Based Javacards
   * CodeWav NFC Sticker Tag Micro Edition
   * THETAKey T101 
   * THETAKey T104 (CodeWav-2 NFC Card)
@@ -29,15 +30,16 @@ The following cards are readily available and tested and confirmed to work.
 The list of tested cards above isn't exhaustive and generally speaking a Javacard needs to support the following features:
 
 * Javacard 3.0.4 (Or higher)
-* javacard.security.KeyAgreement: ALG_EC_SVDP_DH_PLAIN, ALG_EC_SVDP_DH_PLAIN_XY
-* javacard.security.Signature: ALG_ECDSA_SHA_256
-* javacard.security.MessageDigest: ALG_SHA_256, ALG_SHA_512
-* javacard.security.RandomData: ALG_SECURE_RANDOM
-* javacardx.crypto.Cipher: ALG_AES_BLOCK_128_ECB, ALG_AES_BLOCK_128_CBC_NOPAD
+* Support the following Functions
+  * javacard.security.KeyAgreement: ALG_EC_SVDP_DH_PLAIN, ALG_EC_SVDP_DH_PLAIN_XY
+  * javacard.security.Signature: ALG_ECDSA_SHA_256
+  * javacard.security.MessageDigest: ALG_SHA_256, ALG_SHA_512
+  * javacard.security.RandomData: ALG_SECURE_RANDOM
+  * javacardx.crypto.Cipher: ALG_AES_BLOCK_128_ECB, ALG_AES_BLOCK_128_CBC_NOPAD
 
 You can find a database of various Javacards and their supported functions here: https://www.fi.muni.cz/~xsvenda/jcalgtest/table.html
 
-**_If you attempt to flash the applets to an unsupported card, you will likely get an error after the CAP file has been loaded.**_ 
+**If you attempt to flash the applets to an unsupported card, you will likely get an error after the CAP file has been loaded.**
 
 #### Where to Buy
 
@@ -51,7 +53,9 @@ You can source these Java Smartcards from a range of different websites dependin
 The fastest and simplest method is to simply flash CAP files from the releases.
 
 [Official Satochip Releases](https://github.com/Toporin/SatochipApplet/releases)
+
 [Official Seedkeeper Releases](https://github.com/Toporin/Seedkeeper-Applet/releases)
+
 [Official Satodime Releases](https://github.com/Toporin/Satodime-Applet/releases)
 
 #### Easy Method - Downloading from Github Actions
@@ -64,12 +68,39 @@ If you have a Github account and are logged in, you can view and download the bu
 If you want to build the CAP files on your own system, keep on reading...
 
 ### Flashing Applets to Javacards
+This repository includes a release of [GlobalPlatformPro](https://github.com/martinpaljak/GlobalPlatformPro) which can be used to flash the applets. 
 
-gp --install FILENAME.cap
+On Windows
+  gp.exe --install FILENAME.cap
+
+On Other Operating Systems
+  java -jar gp.jar --install FILENAME.cap
 
 ### Locking Javacards (Optional)
-
 While it is not possible download applets (And wallet data) from an unlocked card, leaving the card unlocked makes it very easy for someone to discover what applets are installed on the card, delete these applets and potentially install other applets of their own. (Including those which could exploit yet-to-be-discovered weaknesses in the Javacard OS or Applet segregation protections) Locking cards is easy and is a good idea...
+
+To lock the cards, you simply run the `--lock` command with a 32 character hexidecimal key. 
+
+**Be sure to notes this key down, as you will need it if you want to perform any install/uninstall/unlock operations on the card.**
+
+For example, to lock the cards with the key `010B0371D78377B801F2D62AFC671D95`
+
+On Windows
+  gp --lock 010B0371D78377B801F2D62AFC671D95
+
+On Other Operating Systems
+  java --lock 010B0371D78377B801F2D62AFC671D95
+
+After this command has been run, further operations will require that the key is specified with the `--key` argument
+
+For example installing an applet on a card locked with the key `010B0371D78377B801F2D62AFC671D95` would be:
+
+On Windows
+  gp.exe --key 010B0371D78377B801F2D62AFC671D95 --install FILENAME.cap
+
+On Other Operating Systems
+  java -jar gp.jar --key 010B0371D78377B801F2D62AFC671D95 --install FILENAME.cap
+
 
 ### Build Environment
 
