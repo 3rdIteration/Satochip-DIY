@@ -65,15 +65,65 @@ If you have a Github account and are logged in, you can view and download the bu
 
 #### Harder Method - Building on your own PC
 
-If you want to build the CAP files on your own system, keep on reading...
+##### Cloning this Github Repository
+This repository includes resources from other Github repositories, so it is nessesary to use Git to download it recursively.
+
+**Simply downloading the zip file directly from Github will not work...**
+
+If your system has Github for Windows installed, you can simply click the `Code` button on this page and select `Open with GitHub Desktop`
+
+If your system already has Git installed, you can open a terminal and type
+
+    git clone --recursive https://github.com/3rdIteration/Satochip-DIY.git
+
+##### Download and Unzip Apache Ant
+If you are in Linux, you can normally install ant via apt (`sudo apt install ant`). 
+
+If you are in Windows, you can download a binary distribution of Ant here: https://ant.apache.org/bindownload.cgi you can then unzip it and then run Ant via ant.bat that comes with it.
+
+_The examples below assume that you have extracted Ant to your C: drive_
+
+##### Download and Install Java SDK 8
+
+While there are far newer versions of the Java SDK available, Java 8 supports the widest number of Javacard SDKs and has Long Term Support until 2030, so this is the best version to use when setting up a Javacard Build Environment...
+
+You can find out more about supported Java versions here: https://github.com/martinpaljak/ant-javacard/wiki/JavaCard-SDK-and-JDK-version-compatibility
+
+**On Windows**
+
+You can download OpenJDK 8 here: https://adoptium.net/temurin/releases/?version=8
+
+Once downloaded, you can install it with all the defaults.
+
+**On Linux**
+    
+    sudo apt install openjdk-8
+
+#### Building
+
+Open a command prompt (or terminal) and navigate to the folder of this Github Repository.
+
+Once there, you can simply run Ant.
+
+On Windows (Assuming you unzipped the Ant Binary distribution onto C drive, in this example it is for version 1.9.16...)
+
+    "C:\apache-ant-1.9.16\bin\ant.bat"
+
+On Linux
+    
+    ant
+
+Once complete, you will notice that there is a new folder that was created called `Build` which will contain all of the compiled applets.
 
 ### Flashing Applets to Javacards
 This repository includes a release of [GlobalPlatformPro](https://github.com/martinpaljak/GlobalPlatformPro) which can be used to flash the applets. 
 
-On Windows
+**On Windows**
+
     gp.exe --install FILENAME.cap
 
-On Other Operating Systems
+**On Other Operating Systems**
+
     java -jar gp.jar --install FILENAME.cap
 
 ### Locking Javacards (Optional)
@@ -85,11 +135,11 @@ To lock the cards, you simply run the `--lock` command with a 32 character hexid
 
 For example, to lock the cards with the key `010B0371D78377B801F2D62AFC671D95`
 
-On Windows
+**On Windows**
 
     gp --lock 010B0371D78377B801F2D62AFC671D95
 
-On Other Operating Systems
+**On Other Operating Systems**
 
     java --lock 010B0371D78377B801F2D62AFC671D95
 
@@ -97,15 +147,12 @@ After this command has been run, further operations will require that the key is
 
 For example installing an applet on a card locked with the key `010B0371D78377B801F2D62AFC671D95` would be:
 
-On Windows
+**On Windows**
 
     gp.exe --key 010B0371D78377B801F2D62AFC671D95 --install FILENAME.cap
 
-On Other Operating Systems
+**On Other Operating Systems**
 
     java -jar gp.jar --key 010B0371D78377B801F2D62AFC671D95 --install FILENAME.cap
-
-
-### Build Environment
 
 ### Simulator
