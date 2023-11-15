@@ -147,7 +147,7 @@ For example, to lock the cards with the key `010B0371D78377B801F2D62AFC671D95`
 
 **On Other Operating Systems**
 
-    java --lock 010B0371D78377B801F2D62AFC671D95
+    java -jar gp.jar--lock 010B0371D78377B801F2D62AFC671D95
 
 After this command has been run, further operations will require that the key is specified with the `--key` argument
 
