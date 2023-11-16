@@ -11,14 +11,15 @@ _Java Card is the leading open, interoperable platform for secure elements, enab
 Fortunatly, Java Card devices provide a platform that lends itself to Open Source (and therefore DIY) development, allowing for development of software that can run on hardened platform with a Secure Element, without needing an NDA, while still using commodity hardware that can be sourced from a number of different vendors in a range of form factors.
 
 ## Hardware Selection
+Navigating the Javacard ecosystem can be difficult... There are many different configuration options that are available, even within the same chipset. For example, while there are multiple Javacards that use the NXP JCOP4 P71, it is generally the SECID versions that will work, whereas EMV versions will not. (With some models, such as the J3R150, being available in both versions)
 
-### Tested and Working
+### Tested and Working Javacards
 The following cards are readily available and tested and confirmed to work.
 
-* NXP JCOP4 P71 Based Javacards
+* NXP JCOP4 P71 SECID Based Javacards
   * J3R110
   * J3R180 (Recommended Card) [Buy from Satochip](https://satochip.io/product/card-for-diy-project/)
-* NXP JCOP3 P60 Based Javacards
+* NXP JCOP3 P60 SECID Based Javacards
   * J3H145
 * THD-89 Based Javacards (These currently don't work reliably with the official builds, but this repository also includes some versions tweaked to support them)
   * CodeWav NFC Sticker Tag Micro Edition
@@ -47,7 +48,16 @@ You can find a database of various Javacards and their supported functions here:
 
 You can source these Java Smartcards from a range of different websites depending on where in the world you live. Generally speaking, purchasing single cards is rarely cost-effective and you will often end up paying $20+ USD on shipping.
 
-**If you want to be sure that the card will work and support development of this project, it is best to source the card through SatoChip... (Their pricing is quite competitive, especially for a single card)**
+**If you want to be sure that the card will work and support development of this project, it is best to source the card through SatoChip... (Their pricing is quite competitive, especially for a single card)** [Buy from Satochip](https://satochip.io/product/card-for-diy-project/)
+
+### SmartCard Readers
+You can both program and use Satochip applets with either hard-wired (Contact) or NFC (Contactless) Smart Card Readers.
+
+Generally speaking, any generic USB Smart-Card reader will work fine for both programming and operation of Satochip cards.
+
+### Compatibility Notes
+* Some Smartcards might work fine over the NFC interface, but not work correctly over the contact interface. (This may be resolved in future updates)
+* The **ACS ACR 122U** reader is unreliable for flashing applets and may brick your card. (Though works fine for normal operation after they have been flashed)
 
 ## Obtaining Applets to Flash to Javacards
 
@@ -126,6 +136,8 @@ Once complete, you will notice that there is a new folder that was created calle
 ## Flashing Applets to Javacards
 This repository includes a release of [GlobalPlatformPro](https://github.com/martinpaljak/GlobalPlatformPro) which can be used to flash the applets. 
 
+To flash the appletse using the default AIDs (Which is required to work with existing Satochip compatible software) you can use the following commands.
+
 **On Windows**
 
     gp.exe --install ./build/FILENAME.cap
@@ -135,6 +147,9 @@ This repository includes a release of [GlobalPlatformPro](https://github.com/mar
     java -jar gp.jar --install ./build/FILENAME.cap
 
 Applets can be uninstalled in the same way using the `--uninstall` command.
+
+## Adding your own Personalisation Certificates
+TBC
 
 ## Locking Javacards (Optional)
 While it is not possible download applets (And wallet data) from an unlocked card, leaving the card unlocked makes it very easy for someone to discover what applets are installed on the card, delete these applets and potentially install other applets of their own. (Including those which could exploit yet-to-be-discovered weaknesses in the Javacard OS or Applet segregation protections) Locking cards is easy and is a good idea...
@@ -165,4 +180,14 @@ For example installing an applet on a card locked with the key `010B0371D78377B8
 
     java -jar gp.jar --key 010B0371D78377B801F2D62AFC671D95 --install ./build/FILENAME.cap
 
+## Installing other Applets
+Javacards allow you install and use multiple applets, with the Javacard OS maintaining segregation between each applet.
+
+This means that there might be instances where you can use other applets to do things like being able cryptographically verify identity or posession of a physical card, add plausible deniability throught a secondary function or even to have multiple instances of the same applet installed on the card with custom AIDs.
+
+Some other applets that you might consider installing are:
+SmartPGP: https://github.com/github-af/SmartPGP (Allows you go generate a PGP key on-card to verify card identity without needing to enter a device PIN, as well as other PGP operations)
+TOTP: https://github.com/VivoKey/apex-totp (NFC based TOTP Authenticator, compatible with the Yubico Authenticator App)
+
 ## Simulator
+TBC
