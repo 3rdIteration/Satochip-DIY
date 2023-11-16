@@ -44,6 +44,13 @@ You can find a database of various Javacards and their supported functions here:
 
     Error: INSTALL [for install and make selectable] failed: 0x6444
 
+ or
+
+
+ or
+
+
+
 ### Where to Buy
 
 You can source these Java Smartcards from a range of different websites depending on where in the world you live. Generally speaking, purchasing single cards is rarely cost-effective and you will often end up paying $20+ USD on shipping.
@@ -148,7 +155,23 @@ To flash the appletse using the default AIDs (Which is required to work with exi
 
 Applets can be uninstalled in the same way using the `--uninstall` command.
 
-## Adding your own Personalisation Certificates
+**Error Messages from Locked Cards**
+
+Depending on where you sourced your Javacard from, it's possible that it will already have been locked with some custom keys.
+
+If you see an error similar to this:
+
+    Read more from https://github.com/martinpaljak/GlobalPlatformPro/wiki/Keys
+    STRICT WARNING: Card cryptogram invalid!
+    Card: 626FC84D83315BED
+    Host: B8A9A7C85B1BFF34
+    !!! DO NOT RE-TRY THE SAME COMMAND/KEYS OR YOU MAY BRICK YOUR CARD !!!
+
+You need to stop attempting to flash it and contact the vendor you purchased the cards from.
+
+_You will also get this message if you had previously locked the card with a custom key (See below)_
+
+## Adding your own Personalisation Certificates (Optional)
 TBC
 
 ## Locking Javacards (Optional)
@@ -180,7 +203,7 @@ For example installing an applet on a card locked with the key `010B0371D78377B8
 
     java -jar gp.jar --key 010B0371D78377B801F2D62AFC671D95 --install ./build/FILENAME.cap
 
-## Installing other Applets
+## Installing other Applets (Optional)
 Javacards allow you install and use multiple applets, with the Javacard OS maintaining segregation between each applet.
 
 This means that there might be instances where you can use other applets to do things like being able cryptographically verify identity or posession of a physical card, add plausible deniability throught a secondary function or even to have multiple instances of the same applet installed on the card with custom AIDs.
