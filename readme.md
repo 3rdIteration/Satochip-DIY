@@ -42,14 +42,15 @@ You can find a database of various Javacards and their supported functions here:
 
 **If you attempt to flash the applets to an unsupported card, you will likely get an error after the CAP file has been loaded.**
 
+Some examples of these kinds of errors are:
+
     Error: INSTALL [for install and make selectable] failed: 0x6444
+ _You will get this error if the applet calls a function that your Javacard doesn't support_
 
  or
 
-
- or
-
-
+    LOAD failed: 0x6438
+_You will get this error if the applet was build with a JavacardSDK version higher than what your card supports_
 
 ### Where to Buy
 
