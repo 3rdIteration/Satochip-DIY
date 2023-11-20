@@ -91,6 +91,8 @@ The fastest and simplest method is to simply flash CAP files from the releases.
 
 _For unofficial builds (eg: THD-89 devices) you will need to either build the applets yourself or download them from Github Actions..._
 
+Once you have the CAP file you want, you can move on to [Flash Applets to Javacards](#locking-javacards-optional)
+
 ### Easy Method - Downloading from Github Actions
 This repository automatically builds the official and THD-89 builds using Github Actions.
 
@@ -99,6 +101,8 @@ If you have a Github account and are logged in, you can view and download the bu
 [![Build Satochip DIY Applets](https://github.com/3rdIteration/Satochip-DIY/actions/workflows/ant.yml/badge.svg)](https://github.com/3rdIteration/Satochip-DIY/actions/workflows/ant.yml)
 
 On this screen, you can also click on the `Build` job button to view a log of the build process and verify that the SHA256 sums of the applets match those that you downloaded.
+
+Once you have the CAP file you want, you can move on to [Flash Applets to Javacards](#locking-javacards-optional)
 
 ### Harder, but Better Method - Building on your own PC
 
@@ -185,9 +189,6 @@ You need to stop attempting to flash it and contact the vendor you purchased the
 
 _You will also get this message if you had previously locked the card with a custom key (See below)_
 
-## Adding your own Personalisation Certificates (Optional)
-TBC
-
 ## Locking Javacards (Optional)
 While it is not possible download applets (And wallet data) from an unlocked card, leaving the card unlocked makes it very easy for someone to discover what applets are installed on the card, delete these applets and potentially install other applets of their own. (Including those which could exploit yet-to-be-discovered weaknesses in the Javacard OS or Applet segregation protections) Locking cards is easy and is a good idea...
 
@@ -225,6 +226,3 @@ This means that there might be instances where you can use other applets to do t
 Some other applets that you might consider installing are:
 SmartPGP: https://github.com/github-af/SmartPGP (Allows you go generate a PGP key on-card to verify card identity without needing to enter a device PIN, as well as other PGP operations)
 TOTP: https://github.com/VivoKey/apex-totp (NFC based TOTP Authenticator, compatible with the Yubico Authenticator App)
-
-## Simulator
-TBC
