@@ -16,7 +16,7 @@ The process for having a working DIY Satochip device is generally.
 1. [Obtain a compatible Javacard](#hardware-selection)
 2. [Obtain a Smart Card Reader (Or NFC Reader)](#smartcard-readers)
 3. [Obtain CAP File to Load on Javacard](#obtaining-applets-to-flash-to-javacards)
-4. [Flash Applets to Javacards](#locking-javacards-optional)
+4. [Flash Applets to Javacards](#flashing-applets-to-javacards)
 5. [(Optional) Lock Cards](#locking-javacards-optional)
 
 _If you purchase the hardware (Reader and cards) directly from Satochip and use their pre-built CAP files, the whole process can be completed in 5 minutes..._
@@ -91,7 +91,7 @@ The fastest and simplest method is to simply flash CAP files from the releases.
 
 _For unofficial builds (eg: THD-89 devices) you will need to either build the applets yourself or download them from Github Actions..._
 
-Once you have the CAP file you want, you can move on to [Flash Applets to Javacards](#locking-javacards-optional)
+Once you have the CAP file you want, you can move on to [Flash Applets to Javacards](#flashing-applets-to-javacards)
 
 ### Easy Method - Downloading from Github Actions
 This repository automatically builds the official and THD-89 builds using Github Actions.
@@ -102,7 +102,7 @@ If you have a Github account and are logged in, you can view and download the bu
 
 On this screen, you can also click on the `Build` job button to view a log of the build process and verify that the SHA256 sums of the applets match those that you downloaded.
 
-Once you have the CAP file you want, you can move on to [Flash Applets to Javacards](#locking-javacards-optional)
+Once you have the CAP file you want, you can move on to [Flash Applets to Javacards](#flashing-applets-to-javacards)
 
 ### Harder, but Better Method - Building on your own PC
 
