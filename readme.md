@@ -10,6 +10,17 @@ _Java Card is the leading open, interoperable platform for secure elements, enab
 
 Fortunatly, Java Card devices provide a platform that lends itself to Open Source (and therefore DIY) development, allowing for development of software that can run on hardened platform with a Secure Element, without needing an NDA, while still using commodity hardware that can be sourced from a number of different vendors in a range of form factors.
 
+## Overview
+The process for having a working DIY Satochip device is generally.
+
+1. [Obtain a compatible Javacard](#hardware-selection)
+2. [Obtain a Smart Card Reader (Or NFC Reader)](#smartcard-readers)
+3. [Obtain CAP File to Load on Javacard](#obtaining-applets-to-flash-to-javacards)
+4. [Flash Applets to Javacards](#locking-javacards-optional)
+5. [(Optional) Lock Cards](#locking-javacards-optional)
+
+_If you purchase the hardware (Reader and cards) directly from Satochip and use their pre-built CAP files, the whole process can be completed in 5 minutes..._
+
 ## Hardware Selection
 Navigating the Javacard ecosystem can be difficult... There are many different configuration options that are available, even within the same chipset. For example, while there are multiple Javacards that use the NXP JCOP4 P71, it is generally the SECID versions that will work, whereas EMV versions will not. (With some models, such as the J3R150, being available in both versions)
 
@@ -142,7 +153,9 @@ On Linux
 Once complete, you will notice that there is a new folder that was created called `Build` which will contain all of the compiled applets.
 
 ## Flashing Applets to Javacards
-This repository includes a release of [GlobalPlatformPro](https://github.com/martinpaljak/GlobalPlatformPro) which can be used to flash the applets. 
+This repository includes a release of [GlobalPlatformPro](https://github.com/martinpaljak/GlobalPlatformPro) which can be used to flash the applets.
+
+**GlobalPlatformPro requires a working installation of Java, so if you didn't install Java at an earlier step, you need to do that before proceeding...**
 
 To flash the appletse using the default AIDs (Which is required to work with existing Satochip compatible software) you can use the following commands.
 
