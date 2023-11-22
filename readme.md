@@ -99,7 +99,7 @@ _For unofficial builds (eg: THD-89 devices) you will need to either build the ap
 
 Once you have the CAP file you want, you can move on to [Flash Applets to Javacards](#flashing-applets-to-javacards)
 
-### Easy Method - Downloading from Github Actions
+### Easy Method for Testing (Not Recommended for Storing Actual Funds) - Downloading from Github Actions
 This repository automatically builds the official and THD-89 builds using Github Actions.
 
 If you have a Github account and are logged in, you can view and download the build artifacts (Compiled applets, ready to flash) by clicking the "Build Satochip DIY Applets" button below, selecting the most recent run and scrolling down to the `Artifacts` and downloading a zip file contining all of the compiled applets.
