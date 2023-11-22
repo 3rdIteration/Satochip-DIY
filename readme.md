@@ -16,8 +16,9 @@ The process for having a working DIY Satochip device is generally.
 1. [Obtain a compatible Javacard](#hardware-selection)
 2. [Obtain a Smart Card Reader (Or NFC Reader)](#smartcard-readers)
 3. [Obtain CAP File to Load on Javacard](#obtaining-applets-to-flash-to-javacards)
-4. [Flash Applets to Javacards](#flashing-applets-to-javacards)
-5. [(Optional) Lock Cards](#locking-javacards-optional)
+4. [Install Java (If not already installed)](#download-and-install-java)
+5. [Flash Applets to Javacards](#flashing-applets-to-javacards)
+6. [Lock Cards (Optional)](#locking-javacards-optional)
 
 _If you purchase the hardware (Reader and cards) directly from Satochip and use their pre-built CAP files, the whole process can be completed in 5 minutes..._
 
@@ -124,9 +125,13 @@ If you are in Windows, you can download a binary distribution of Ant here: https
 
 _The examples below assume that you have extracted Ant to your C: drive_
 
-#### Download and Install Java SDK 8
+#### Download and Install Java
 
-While there are far newer versions of the Java SDK available, Java 8 supports the widest number of Javacard SDKs and has Long Term Support until 2030, so is the simplest version to recommend and support...
+Regardless of whether you are flashing pre-compiled CAP files or building from source, you will need a working installation of Java.
+
+If you are simply flashing pre-build CAP files, any version of the Java Runtime Environment (JRE) will generally be fine and you may already have one installed. 
+
+If you are building the CAP files from source, you will need the Java Software Development Kit (SDK), so unless you have been doing other software development work on your PC, you probably don't already have this installed... While there are far newer versions of the Java SDK available, Java 8 works with all the tools we need for this guide, supports the widest number of Javacard SDKs and has Long Term Support until 2030, so is the simplest version to recommend and support...
 
 You can find out more about supported Java versions here: https://github.com/martinpaljak/ant-javacard/wiki/JavaCard-SDK-and-JDK-version-compatibility
 
@@ -161,7 +166,7 @@ This repository includes a release of [GlobalPlatformPro](https://github.com/mar
 
 **GlobalPlatformPro requires a working installation of Java, so if you didn't install Java at an earlier step, you need to do that before proceeding...**
 
-To flash the appletse using the default AIDs (Which is required to work with existing Satochip compatible software) you can use the following commands.
+To flash the appletse using the default AIDs (Which is required to work with existing Satochip compatible software) you can use the following commands. (Run this in Command Prompt or Terminal)
 
 **On Windows**
 
