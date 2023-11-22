@@ -61,6 +61,11 @@ Some examples of these kinds of errors are:
 
  or
 
+    Error: INSTALL [for install and make selectable] failed: 0x6F00
+ _You will get this error if the applet calls a function that your Javacard doesn't support_
+
+ or
+
     LOAD failed: 0x6438
 _You will get this error if the applet was build with a JavacardSDK version higher than what your card supports_
 
