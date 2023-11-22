@@ -125,7 +125,23 @@ If you are in Windows, you can download a binary distribution of Ant here: https
 
 _The examples below assume that you have extracted Ant to your C: drive_
 
-#### Download and Install Java
+### Building
+
+Open a command prompt (or terminal) and navigate to the folder of this Github Repository.
+
+Once there, you can simply run Ant.
+
+On Windows (Assuming you unzipped the Ant Binary distribution onto C drive, in this example it is for version 1.9.16...)
+
+    "C:\apache-ant-1.9.16\bin\ant.bat"
+
+On Linux
+    
+    ant
+
+Once complete, you will notice that there is a new folder that was created called `Build` which will contain all of the compiled applets.
+
+## Download and Install Java
 
 Regardless of whether you are flashing pre-compiled CAP files or building from source, you will need a working installation of Java.
 
@@ -144,22 +160,6 @@ Once downloaded, you can install it with all the defaults.
 **On Linux**
     
     sudo apt install openjdk-8
-
-### Building
-
-Open a command prompt (or terminal) and navigate to the folder of this Github Repository.
-
-Once there, you can simply run Ant.
-
-On Windows (Assuming you unzipped the Ant Binary distribution onto C drive, in this example it is for version 1.9.16...)
-
-    "C:\apache-ant-1.9.16\bin\ant.bat"
-
-On Linux
-    
-    ant
-
-Once complete, you will notice that there is a new folder that was created called `Build` which will contain all of the compiled applets.
 
 ## Flashing Applets to Javacards
 This repository includes a release of [GlobalPlatformPro](https://github.com/martinpaljak/GlobalPlatformPro) which can be used to flash the applets.
