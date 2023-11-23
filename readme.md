@@ -19,7 +19,7 @@ The process for having a working DIY Satochip device is generally.
 4. [Install Java (If not already installed)](#download-and-install-java)
 5. [Flash Applets to Javacards](#flashing-applets-to-javacards)
 6. [Lock Cards (Optional)](#locking-javacards-optional)
-7. [Installing other Applets](#installing-other-applets-optional)
+7. [Installing other Applets (Optional)](#installing-other-applets-optional)
 
 _If you purchase the hardware (Reader and cards) directly from Satochip and use their pre-built CAP files, the whole process can be completed in 5 minutes..._
 
