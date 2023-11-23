@@ -19,6 +19,7 @@ The process for having a working DIY Satochip device is generally.
 4. [Install Java (If not already installed)](#download-and-install-java)
 5. [Flash Applets to Javacards](#flashing-applets-to-javacards)
 6. [Lock Cards (Optional)](#locking-javacards-optional)
+7. [Installing other Applets](#installing-other-applets-optional)
 
 _If you purchase the hardware (Reader and cards) directly from Satochip and use their pre-built CAP files, the whole process can be completed in 5 minutes..._
 
@@ -233,6 +234,16 @@ Javacards allow you install and use multiple applets, with the Javacard OS maint
 
 This means that there might be instances where you can use other applets to do things like being able cryptographically verify identity or posession of a physical card, add plausible deniability throught a secondary function or even to have multiple instances of the same applet installed on the card with custom AIDs.
 
+_There are limits as to what you can fit on your Javacard, so the number and size of additional applets you can install will vary..._
+
 Some other applets that you might consider installing are:
-SmartPGP: https://github.com/github-af/SmartPGP (Allows you go generate a PGP key on-card to verify card identity without needing to enter a device PIN, as well as other PGP operations)
-TOTP: https://github.com/VivoKey/apex-totp (NFC based TOTP Authenticator, compatible with the Yubico Authenticator App)
+
+**SmartPGP:**
+Allows you go generate a PGP key on-card to verify card identity without needing to enter a device PIN, as well as other PGP operations. 
+
+Repository: https://github.com/github-af/SmartPGP 
+
+**TOTP:** 
+NFC based TOTP Authenticator, compatible with the Yubico Authenticator App.
+
+Repository: https://github.com/VivoKey/apex-totp 
