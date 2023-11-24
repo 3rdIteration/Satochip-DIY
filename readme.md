@@ -239,11 +239,32 @@ _There are limits as to what you can fit on your Javacard, so the number and siz
 Some other applets that you might consider installing are:
 
 **SmartPGP:**
+
 Allows you go generate a PGP key on-card to verify card identity without needing to enter a device PIN, as well as other PGP operations. 
 
-Repository: https://github.com/github-af/SmartPGP 
+Repository and CAP Downloads: https://github.com/github-af/SmartPGP 
+
+_Compatability Notes: THD-89 Devices require a special tweaked build of SmartPGP, the official releases don't currently work..._
 
 **TOTP:** 
+
 NFC based TOTP Authenticator, compatible with the Yubico Authenticator App.
 
 Repository: https://github.com/VivoKey/apex-totp 
+CAP File Download: https://github.com/DangerousThings/flexsecure-applets
+
+_Compatability Notes: I have been unable to get this applet to work on any J3H145 devices that I have here..._
+
+## Further Reading, Applets and Resources
+
+**FlexSecure Applets**
+
+An Excellent collection of applets and documentation.
+
+https://github.com/DangerousThings/flexsecure-applets
+
+**Curated List of Javacard Applications**
+
+A great list of various Javacard applications. 
+
+https://github.com/crocs-muni/javacard-curated-list
