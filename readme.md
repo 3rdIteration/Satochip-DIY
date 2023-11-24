@@ -120,6 +120,8 @@ This repository includes resources from other Github repositories, so it is ness
 
 If your system has Github for Windows installed, you can simply click the `Code` button on this page and select `Open with GitHub Desktop`
 
+Alternatively, you can use Git for Windows: https://git-scm.com/download/win
+
 If your system already has Git installed, you can open a terminal and type
 
     git clone --recursive https://github.com/3rdIteration/Satochip-DIY.git
