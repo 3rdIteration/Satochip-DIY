@@ -167,7 +167,7 @@ Once downloaded, you can install it with all the defaults.
 
 **On Linux**
     
-    sudo apt install openjdk-8
+    sudo apt install openjdk-8-jdk
 
 ## Flashing Applets to Javacards
 This repository includes a release of [GlobalPlatformPro](https://github.com/martinpaljak/GlobalPlatformPro) which can be used to flash the applets.
