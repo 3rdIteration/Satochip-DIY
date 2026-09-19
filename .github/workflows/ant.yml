@@ -27,10 +27,11 @@ jobs:
         distribution: 'temurin'
     - name: Build with Ant
       run: ant
-    - name: Generate Checksums (Echo to log)
-      run: find ./build/ -type f -exec sha256sum {} \;
-    - name: Generate Checksums (For Artifacts)
-      run: find ./build/ -type f -exec sha256sum {} \; > ./build/sha256sums.txt
+    - name: Generate Checksums
+      working-directory: ./build
+      run: |
+        sha256sum -- *.cap > sha256sums.txt
+        cat sha256sums.txt
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
       with:
