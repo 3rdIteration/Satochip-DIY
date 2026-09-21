@@ -1,0 +1,20 @@
+sourceSets {
+    main {
+        java {
+            srcDirs = [file("$rootDir/../applets/seedkeeper/src/main/java")]
+        }
+    }
+    test {
+        java {
+            srcDir "$rootDir/testkit/tests-core"
+            srcDir "$rootDir/testkit/tests-seedkeeper"
+        }
+    }
+}
+
+test {
+    systemProperty 'applet.class', 'org.seedkeeper.applet.SeedKeeper'
+    systemProperty 'applet.aid', '536565644b656570657200'
+    systemProperty 'applet.kind', 'seedkeeper'
+    systemProperty 'applet.variant', 'official'
+}

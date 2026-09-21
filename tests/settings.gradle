@@ -1,0 +1,10 @@
+rootProject.name = 'satochip-diy-tests'
+
+include 'applet-satochip'
+include 'applet-satochip-thd89'
+include 'applet-satodime'
+include 'applet-satodime-thd89'
+include 'applet-seedkeeper'
+include 'applet-seedkeeper-thd89'
+include 'integration-pairing'
+include 'integration-pairing-thd89'

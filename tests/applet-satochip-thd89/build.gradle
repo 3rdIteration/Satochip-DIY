@@ -1,0 +1,20 @@
+sourceSets {
+    main {
+        java {
+            srcDirs = [file("$rootDir/../applets/satochip-thd89/src")]
+        }
+    }
+    test {
+        java {
+            srcDir "$rootDir/testkit/tests-core"
+            srcDir "$rootDir/testkit/tests-satochip"
+        }
+    }
+}
+
+test {
+    systemProperty 'applet.class', 'org.satochip.applet.CardEdge'
+    systemProperty 'applet.aid', '5361746F4368697000'
+    systemProperty 'applet.kind', 'satochip'
+    systemProperty 'applet.variant', 'thd89'
+}

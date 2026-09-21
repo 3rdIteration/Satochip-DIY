@@ -257,6 +257,17 @@ CAP File Download: https://github.com/DangerousThings/flexsecure-applets
 
 _Compatability Notes: I have been unable to get this applet to work on any J3H145 devices that I have here..._
 
+## Testing
+
+This repository includes an automated test suite that runs the Satochip, Satodime and Seedkeeper applets (both the official and the THD-89 builds) inside the [jCardsim](https://github.com/ph4r05/jcardsim) Java Card simulator, including the full secure channel and the Seedkeeper to Satochip secure seed import. It runs in CI on every push and pull request.
+
+To run the tests locally (requires JDK 8 and a recursive clone):
+
+    cd tests
+    ./gradlew test
+
+See [tests/README.md](tests/README.md) for the coverage and layout.
+
 ## Further Reading, Applets and Resources
 
 **FlexSecure Applets**

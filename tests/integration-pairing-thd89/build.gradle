@@ -1,0 +1,19 @@
+sourceSets {
+    main {
+        java {
+            srcDirs = [
+                    file("$rootDir/../applets/satochip-thd89/src"),
+                    file("$rootDir/../applets/seedkeeper/src/main/java")
+            ]
+        }
+    }
+    test {
+        java {
+            srcDir "$rootDir/testkit/tests-integration"
+        }
+    }
+}
+
+test {
+    systemProperty 'applet.variant', 'thd89'
+}
