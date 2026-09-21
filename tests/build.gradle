@@ -1,0 +1,61 @@
+// Root build for the jCardsim-based applet test suite.
+//
+// The applet sources are compiled per-variant (they share class names across the
+// official and THD-89 forks, so they must live in isolated modules). Every module
+// compiles its own applet source tree plus the shared test-kit sources.
+//
+// Run with:  ./gradlew test
+// The JC 3.0.4 API is only needed at compile time for the applet sources; at test
+// runtime javacard.* comes from jCardsim (which bundles a patched JC 3.0.5 API).
+
+def repoRoot = rootProject.projectDir.parentFile
+def jcApi = new File(repoRoot, 'sdks/jc304_kit/lib/api_classic.jar')
+
+if (!jcApi.exists()) {
+    throw new GradleException("JavaCard API jar not found: ${jcApi}. Did you clone with --recursive?")
+}
+
+subprojects { p ->
+    p.apply plugin: 'java'
+
+    p.group = 'dev.satochip.tests'
+    p.version = '1.0.0'
+
+    p.java {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    p.repositories {
+        mavenCentral()
+    }
+
+    p.dependencies {
+        compileOnly p.files(jcApi)
+        testImplementation 'com.klinec:jcardsim:3.0.6.0'
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+        testImplementation 'org.bouncycastle:bcprov-jdk18on:1.78.1'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+
+    // Shared harness (install helpers, secure-channel client, crypto).
+    p.sourceSets.test.java.srcDir rootProject.file('testkit/common')
+
+    p.tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+        options.compilerArgs << '-Xlint:none'
+    }
+
+    p.tasks.withType(Test).configureEach {
+        useJUnitPlatform()
+        // jCardsim patches the bundled javacard.* bytecode.
+        jvmArgs '-noverify'
+        systemProperty 'file.encoding', 'UTF-8'
+        maxHeapSize = '1g'
+        testLogging {
+            exceptionFormat 'full'
+            events 'failed', 'skipped'
+            showStandardStreams = false
+        }
+    }
+}

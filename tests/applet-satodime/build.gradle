@@ -1,0 +1,20 @@
+sourceSets {
+    main {
+        java {
+            srcDirs = [file("$rootDir/../applets/satodime/src")]
+        }
+    }
+    test {
+        java {
+            srcDir "$rootDir/testkit/tests-core"
+            srcDir "$rootDir/testkit/tests-satodime"
+        }
+    }
+}
+
+test {
+    systemProperty 'applet.class', 'org.satodime.applet.Satodime'
+    systemProperty 'applet.aid', '5361746f44696d6500'
+    systemProperty 'applet.kind', 'satodime'
+    systemProperty 'applet.variant', 'official'
+}
